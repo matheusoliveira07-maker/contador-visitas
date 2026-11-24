@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Rodapé</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Um fundo qualquer só para você ver o rodapé no final da tela */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f9; 
+        }
+
+        /* --- ESTILOS DO RODAPÉ --- */
+        .footer-contador {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid #e94560;
+            margin-top: auto; /* Empurra o rodapé para o final da página */
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        /* --- ESTILOS DA MASCOTE --- */
+        .mascote-container {
+            position: relative;
+            margin-bottom: -25px; 
+            transition: transform 0.3s ease;
+        }
+
+        .mascote-container:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .mascote-img {
+            height: 150px; /* Ajuste o tamanho da onça aqui */
+            width: auto;
+            filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5));
+        }
+
+        /* --- ESTILOS DO CONTADOR --- */
+        .contador-container {
+            margin-bottom: 30px;
+        }
+
+        .contador-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .contador-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #a9a9a9;
+        }
+
+        .contador-numero {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #e94560;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Responsividade para celular */
+        @media (max-width: 600px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .mascote-container {
+                margin-bottom: 0;
+            }
+            .mascote-img {
+                height: 120px;
+            }
+            .contador-container {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- RODAPÉ COM O CONTADOR -->
+    <footer class="footer-contador">
+        <div class="footer-content">
+            <!-- A Mascote -->
+            <div class="mascote-container">
+                <img src="mascote.png" alt="Mascote Jaguatirica" class="mascote-img">
+            </div>
+            
+            <!-- O Contador -->
+            <div class="contador-container">
+                <div class="contador-box">
+                    <span class="contador-label">Visitas ao site</span>
+                    <div class="contador-numero" id="numero-visitas">0</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quando o documento carregar
+        document.addEventListener("DOMContentLoaded", () => {
+            const numeroVisitasElement = document.getElementById("numero-visitas");
+
+            // Simulação local para testes no VS Code
+            let visitas = localStorage.getItem("visitas_site");
+
+            if (visitas) {
+                visitas = parseInt(visitas) + 1;
+            } else {
+                visitas = 1;
+            }
+
+            localStorage.setItem("visitas_site", visitas);
+
+            // Função de animação dos números
+            function animarContador(elemento, valorFinal) {
+                let valorAtual = 0;
+                const incremento = Math.ceil(valorFinal / 50); 
+                const duracao = 1500; 
+                const passo = duracao / (valorFinal / incremento);
+
+                const timer = setInterval(() => {
+                    valorAtual += incremento;
+                    if (valorAtual >= valorFinal) {
+                        elemento.innerText = valorFinal;
+                        clearInterval(timer);
+                    } else {
+                        elemento.innerText = valorAtual;
+                    }
+                }, passo);
+            }
+
+            animarContador(numeroVisitasElement, visitas);
+        });
+    </script>
+</body>
+</html>

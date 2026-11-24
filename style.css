@@ -1,0 +1,108 @@
+/* Reset básico para o footer */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* Empurra o footer para baixo */
+    padding: 50px;
+    text-align: center;
+}
+
+/* --- ESTILOS DO RODAPÉ --- */
+.footer-contador {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffffff;
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid #e94560; /* Linha de destaque combinando com a onça */
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end; /* Alinha a base da onça com o contador */
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* --- ESTILOS DA MASCOTE --- */
+.mascote-container {
+    position: relative;
+    /* Ajuste para a onça ficar "saindo" um pouco do rodapé */
+    margin-bottom: -25px; 
+    transition: transform 0.3s ease;
+}
+
+.mascote-container:hover {
+    transform: translateY(-10px) scale(1.05); /* Efeito de flutuar ao passar o mouse */
+}
+
+.mascote-img {
+    height: 150px; /* Ajuste o tamanho conforme a sua imagem */
+    width: auto;
+    filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5));
+}
+
+/* --- ESTILOS DO CONTADOR --- */
+.contador-container {
+    margin-bottom: 30px;
+}
+
+.contador-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contador-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #a9a9a9;
+}
+
+.contador-numero {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #e94560; /* Cor de destaque */
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    font-variant-numeric: tabular-nums; /* Impede que os números fiquem "pulando" */
+}
+
+/* Responsividade para celular */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .mascote-container {
+        margin-bottom: 0;
+    }
+    .mascote-img {
+        height: 120px;
+    }
+    .contador-container {
+        margin-bottom: 20px;
+    }
+}

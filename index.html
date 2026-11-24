@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste do Rodapé</title>
+    <title>Rodapé - URE Leste 3</title>
     <style>
         /* Reset básico */
         * {
@@ -13,145 +13,179 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Um fundo qualquer só para você ver o rodapé no final da tela */
+        /* Simulação do fundo do seu site */
         body {
+            background-color: #f9f9f9;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background-color: #f4f4f9; 
         }
 
         /* --- ESTILOS DO RODAPÉ --- */
-        .footer-contador {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #ffffff;
-            padding: 20px 0;
-            position: relative;
-            overflow: hidden;
-            border-top: 3px solid #e94560;
-            margin-top: auto; /* Empurra o rodapé para o final da página */
+        .footer-ure {
+            background-color: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            padding: 40px 20px 40px 20px;
+            margin-top: auto;
             width: 100%;
+            position: relative;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.03);
         }
 
-        .footer-content {
-            max-width: 1000px;
+        .footer-container {
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 20px;
-            padding: 0 20px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
         }
 
-        /* --- ESTILOS DA MASCOTE --- */
+        /* --- COLUNA CENTRAL: INFORMAÇÕES DA URE --- */
+        .info-ure {
+            flex: 1;
+            text-align: center;
+            min-width: 300px;
+        }
+
+        .info-ure h3 {
+            color: #000000;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .info-ure p {
+            color: #555555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .info-ure .email {
+            margin-top: 10px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* --- COLUNA DIREITA: MASCOTE COM QUADRO --- */
         .mascote-container {
             position: relative;
-            margin-bottom: -25px; 
-            transition: transform 0.3s ease;
-        }
-
-        .mascote-container:hover {
-            transform: translateY(-10px) scale(1.05);
+            width: 500px; /* Tamanho máximo da imagem */
+            max-width: 100%;
         }
 
         .mascote-img {
-            height: 150px; /* Ajuste o tamanho da onça aqui */
-            width: auto;
-            filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5));
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        /* --- ESTILOS DO CONTADOR --- */
-        .contador-container {
-            margin-bottom: 30px;
-        }
-
-        .contador-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 15px 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        /* O Contador posicionado DENTRO do quadro */
+        .contador-dentro-quadro {
+            position: absolute;
+            /* Ajuste esses valores para o texto encaixar perfeitamente no quadro branco */
+            top: 25%; 
+            left: 42%; 
+            width: 50%;
+            height: 60%;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .contador-label {
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #a9a9a9;
+            letter-spacing: 1px;
+            color: #666666;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
 
         .contador-numero {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            color: #e94560;
-            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            color: #002776; /* Azul escuro combinando com a moldura */
             font-variant-numeric: tabular-nums;
+            line-height: 1;
         }
 
         /* Responsividade para celular */
-        @media (max-width: 600px) {
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+        @media (max-width: 950px) {
+            .footer-container {
+                flex-direction: column-reverse; /* Contador em cima, Info embaixo */
+                gap: 20px;
             }
             .mascote-container {
-                margin-bottom: 0;
+                width: 400px; /* Reduz a imagem no celular */
+                margin: 0 auto;
             }
-            .mascote-img {
-                height: 120px;
+            .contador-numero {
+                font-size: 2.5rem; /* Reduz a fonte */
             }
-            .contador-container {
-                margin-bottom: 20px;
+            .contador-label {
+                font-size: 0.7rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- RODAPÉ COM O CONTADOR -->
-    <footer class="footer-contador">
-        <div class="footer-content">
-            <!-- A Mascote -->
-            <div class="mascote-container">
-                <img src="mascote.png" alt="Mascote Jaguatirica" class="mascote-img">
-            </div>
+    <!-- Seu conteúdo principal vai aqui em cima -->
+
+    <!-- RODAPÉ -->
+    <footer class="footer-ure">
+        <div class="footer-container">
             
-            <!-- O Contador -->
-            <div class="contador-container">
-                <div class="contador-box">
+            <!-- Lado Esquerdo (Invisível para centralizar o texto) -->
+            <div style="flex: 0.2;"></div>
+
+            <!-- Informações da URE (Centro) -->
+            <div class="info-ure">
+                <h3>UNIDADE REGIONAL DE ENSINO - LESTE 3</h3>
+                <p>Rua Isabel Urbina, 200 - CEP 08253-210 - Conjunto Habitacional José Bonifácio - Itaquera - São Paulo - Brasil</p>
+                <p class="email">Email: lt3@educacao.sp.gov.br</p>
+            </div>
+
+            <!-- Mascote e Contador (Direita) -->
+            <div class="mascote-container">
+                <!-- Nome da nova imagem -->
+                <img src="mascote-quadro.png" alt="Mascote Jaguatirica URE Leste 3" class="mascote-img">
+                
+                <!-- Contador sobreposto -->
+                <div class="contador-dentro-quadro">
                     <span class="contador-label">Visitas ao site</span>
                     <div class="contador-numero" id="numero-visitas">0</div>
                 </div>
             </div>
+
         </div>
     </footer>
 
+    <!-- SCRIPT DO CONTADOR -->
     <script>
-        // Quando o documento carregar
         document.addEventListener("DOMContentLoaded", () => {
             const numeroVisitasElement = document.getElementById("numero-visitas");
+            
+            // API global para contar visitas reais
+            fetch('https://api.counterapi.dev/v1/ure-leste3/visitas/up')
+                .then(response => response.json())
+                .then(data => {
+                    const totalVisitas = data.count;
+                    animarContador(numeroVisitasElement, totalVisitas);
+                })
+                .catch(error => {
+                    console.error("Erro no contador:", error);
+                    numeroVisitasElement.innerText = "---";
+                });
 
-            // Simulação local para testes no VS Code
-            let visitas = localStorage.getItem("visitas_site");
-
-            if (visitas) {
-                visitas = parseInt(visitas) + 1;
-            } else {
-                visitas = 1;
-            }
-
-            localStorage.setItem("visitas_site", visitas);
-
-            // Função de animação dos números
             function animarContador(elemento, valorFinal) {
                 let valorAtual = 0;
-                const incremento = Math.ceil(valorFinal / 50); 
+                const incremento = Math.ceil(valorFinal / 50);
                 const duracao = 1500; 
                 const passo = duracao / (valorFinal / incremento);
 
@@ -165,8 +199,6 @@
                     }
                 }, passo);
             }
-
-            animarContador(numeroVisitasElement, visitas);
         });
     </script>
 </body>

@@ -10,6 +10,9 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+     /* ADICIONE ESSAS DUAS LINHAS ABAIXO PARA CENTRALIZAR O RODAPÉ NO MEIO DA TELA */
+    justify-content: center; 
+    align-items: center;
 }
 
 main {

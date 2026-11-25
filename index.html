@@ -1,20 +1,18 @@
-<!-- RODAPÉ URE LESTE 3 - FINAL COMPLETO -->
+<!-- RODAPÉ URE LESTE 3 - VERSÃO FINAL SEM SCROLL -->
 <div class="ure-footer-wrapper">
     <style>
-        /* CONTAINER PRINCIPAL */
         .ure-footer-wrapper {
             background-color: #ffffff;
             border-top: 1px solid #e0e0e0;
-            padding: 30px 15px;
+            padding: 20px 15px; /* Diminuí um pouco o espaço interno */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             width: 100%;
             box-sizing: border-box;
             
-            /* MÁGICA CONTRA O SCROLL */
-            overflow: visible !important; 
+            /* REGRAS PARA MATAR O SCROLL */
+            overflow: hidden !important; 
             height: auto !important;      
-            max-height: none !important;  
-            min-height: 250px;            
+            max-height: 350px !important; /* Limita a altura para não esticar a página */
         }
 
         .ure-footer-container {
@@ -24,10 +22,10 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
         }
 
-        /* TEXTOS DA URE - AUMENTADOS */
+        /* TEXTOS DA URE */
         .ure-info-text {
             flex: 1;
             text-align: center;
@@ -36,15 +34,15 @@
         
         .ure-info-text h3 {
             color: #000000;
-            font-size: 1.5rem; /* Título Maior */
-            margin: 0 0 12px 0;
+            font-size: 1.4rem; 
+            margin: 0 0 10px 0;
             text-transform: uppercase;
             font-weight: 700;
         }
         
         .ure-info-text p {
             color: #555555;
-            font-size: 1.05rem; /* Endereço Maior */
+            font-size: 1rem; 
             line-height: 1.5;
             margin: 0;
         }
@@ -52,14 +50,14 @@
         .ure-info-text .ure-email {
             margin-top: 8px;
             font-weight: 500;
-            font-size: 1.05rem; /* Email Maior */
+            font-size: 1rem; 
             color: #333;
         }
 
         /* MASCOTE E QUADRO */
         .ure-mascote-box {
             position: relative;
-            width: 380px; 
+            width: 340px; /* Onça um pouquinho menor para caber sem scroll */
             max-width: 100%;
             flex-shrink: 0;
             margin: 0 auto;
@@ -71,7 +69,7 @@
             display: block;
         }
 
-        /* POSICIONAMENTO DO CONTADOR NO QUADRO */
+        /* POSICIONAMENTO DO CONTADOR */
         .ure-contador-overlay {
             position: absolute;
             top: 26%;
@@ -85,19 +83,17 @@
             text-align: center;
         }
         
-        /* TEXTO "VISITAS AO SITE" */
         .ure-contador-label {
-            font-size: 0.9rem; 
+            font-size: 0.85rem; 
             text-transform: uppercase;
             color: #666666;
             font-weight: 700;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+            margin-bottom: 2px;
         }
         
-        /* A IMAGEM DO SEU NOVO MEGACONTADOR */
+        /* IMAGEM DO MEGACONTADOR */
         .ure-contador-img {
-            max-width: 140px; 
+            max-width: 130px; /* Ajustado para caber perfeitamente */
             width: 100%;
             height: auto;
             display: block;
@@ -106,40 +102,34 @@
 
         /* RESPONSIVIDADE (CELULAR) */
         @media (max-width: 850px) {
+            .ure-footer-wrapper {
+                max-height: none !important; /* Libera no celular */
+            }
             .ure-footer-container {
                 flex-direction: column-reverse;
-                gap: 15px;
+                gap: 10px;
             }
-            .ure-mascote-box { 
-                width: 280px; 
-            }
-            .ure-info-text h3 { font-size: 1.2rem; }
-            .ure-info-text p, .ure-info-text .ure-email { font-size: 0.95rem; }
+            .ure-mascote-box { width: 260px; }
         }
     </style>
 
     <div class="ure-footer-container">
         
-        <!-- Textos da URE -->
         <div class="ure-info-text">
             <h3>UNIDADE REGIONAL DE ENSINO - LESTE 3</h3>
             <p>Rua Isabel Urbina, 200 - CEP 08253-210 - Conjunto Habitacional José Bonifácio - Itaquera - São Paulo - Brasil</p>
             <p class="ure-email">Email: lt3@educacao.sp.gov.br</p>
         </div>
 
-        <!-- Mascote e Contador -->
         <div class="ure-mascote-box">
             <img src="https://matheusoliveira07-maker.github.io/contador-visitas/mascote-quadro.png" alt="Mascote Jaguatirica" class="mascote">
             
             <div class="ure-contador-overlay">
-                <span class="ure-contador-label">VISITAS AO SITE</span>
+                <span class="ure-contador-label">VISITAS</span>
                 
-                <!-- INÍCIO DO SEU NOVO CÓDIGO DO MEGACONTADOR (adaptado para o quadro) -->
                 <a title='Contador de Visitas do MegaContador' href='https://megacontador.com.br/' target="_blank">
                     <img src='https://megacontador.com.br/img-3aYmyAIEMIF4HXu4-26.gif' border='0' alt='Contador de visitas' class="ure-contador-img">
                 </a>
-                <!-- FIM DO CÓDIGO DO MEGACONTADOR -->
-                
             </div>
         </div>
     </div>

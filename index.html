@@ -1,18 +1,19 @@
-<!-- RODAPÉ URE LESTE 3 - VERSÃO FINAL SEM SCROLL -->
+<!-- RODAPÉ URE LESTE 3 - SEM SCROLL E COM VISITAS AO SITE -->
 <div class="ure-footer-wrapper">
     <style>
+        /* CONTAINER PRINCIPAL */
         .ure-footer-wrapper {
             background-color: #ffffff;
             border-top: 1px solid #e0e0e0;
-            padding: 20px 15px; /* Diminuí um pouco o espaço interno */
+            padding: 20px 15px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             width: 100%;
             box-sizing: border-box;
             
-            /* REGRAS PARA MATAR O SCROLL */
+            /* REGRAS ANTI-SCROLL */
             overflow: hidden !important; 
             height: auto !important;      
-            max-height: 350px !important; /* Limita a altura para não esticar a página */
+            max-height: 320px !important; /* Limita a altura para não estourar a caixa do CMS */
         }
 
         .ure-footer-container {
@@ -25,7 +26,7 @@
             gap: 15px;
         }
 
-        /* TEXTOS DA URE */
+        /* TEXTOS DA URE - DIMINUÍDOS PARA CABER */
         .ure-info-text {
             flex: 1;
             text-align: center;
@@ -34,30 +35,30 @@
         
         .ure-info-text h3 {
             color: #000000;
-            font-size: 1.4rem; 
-            margin: 0 0 10px 0;
+            font-size: 1.15rem; /* Diminuído para não esticar a altura */
+            margin: 0 0 8px 0;
             text-transform: uppercase;
             font-weight: 700;
         }
         
         .ure-info-text p {
             color: #555555;
-            font-size: 1rem; 
-            line-height: 1.5;
+            font-size: 0.9rem; /* Diminuído */
+            line-height: 1.4;
             margin: 0;
         }
         
         .ure-info-text .ure-email {
-            margin-top: 8px;
+            margin-top: 6px;
             font-weight: 500;
-            font-size: 1rem; 
+            font-size: 0.9rem; /* Diminuído */
             color: #333;
         }
 
         /* MASCOTE E QUADRO */
         .ure-mascote-box {
             position: relative;
-            width: 340px; /* Onça um pouquinho menor para caber sem scroll */
+            width: 320px; /* Levemente menor para não empurrar a altura */
             max-width: 100%;
             flex-shrink: 0;
             margin: 0 auto;
@@ -83,17 +84,19 @@
             text-align: center;
         }
         
+        /* TEXTO DO CARD */
         .ure-contador-label {
-            font-size: 0.85rem; 
+            font-size: 0.8rem; 
             text-transform: uppercase;
             color: #666666;
             font-weight: 700;
             margin-bottom: 2px;
+            line-height: 1.1;
         }
         
         /* IMAGEM DO MEGACONTADOR */
         .ure-contador-img {
-            max-width: 130px; /* Ajustado para caber perfeitamente */
+            max-width: 120px; 
             width: 100%;
             height: auto;
             display: block;
@@ -103,13 +106,14 @@
         /* RESPONSIVIDADE (CELULAR) */
         @media (max-width: 850px) {
             .ure-footer-wrapper {
-                max-height: none !important; /* Libera no celular */
+                max-height: none !important; 
             }
             .ure-footer-container {
                 flex-direction: column-reverse;
                 gap: 10px;
             }
-            .ure-mascote-box { width: 260px; }
+            .ure-mascote-box { width: 250px; }
+            .ure-info-text h3 { font-size: 1.1rem; }
         }
     </style>
 
@@ -125,7 +129,8 @@
             <img src="https://matheusoliveira07-maker.github.io/contador-visitas/mascote-quadro.png" alt="Mascote Jaguatirica" class="mascote">
             
             <div class="ure-contador-overlay">
-                <span class="ure-contador-label">VISITAS</span>
+                <!-- TEXTO ALTERADO AQUI -->
+                <span class="ure-contador-label">VISITAS AO SITE</span>
                 
                 <a title='Contador de Visitas do MegaContador' href='https://megacontador.com.br/' target="_blank">
                     <img src='https://megacontador.com.br/img-3aYmyAIEMIF4HXu4-26.gif' border='0' alt='Contador de visitas' class="ure-contador-img">

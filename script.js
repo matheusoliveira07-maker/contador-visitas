@@ -1,27 +1,29 @@
-// Quando o documento carregar
 document.addEventListener("DOMContentLoaded", () => {
-    // Pega o elemento onde o número será exibido
     const numeroVisitasElement = document.getElementById("numero-visitas");
+    
+    // Usando a API do Abacus (mais estável)
+    // O nome 'ure_leste_3_visitas' é o identificador do seu contador. Não mude.
+    fetch('https://abacus.jasonkelly.dev/api/v1/counter/ure_leste_3_visitas/up')
+        .then(response => response.json())
+        .then(data => {
+            // A API do Abacus retorna o número na variável 'value'
+            const totalVisitas = data.value;
+            animarContador(numeroVisitasElement, totalVisitas);
+        })
+        .catch(error => {
+            console.error("Erro ao buscar contador:", error);
+            // Se der erro, mostra 0 (ou pode colocar um número de teste)
+            animarContador(numeroVisitasElement, 0); 
+        });
 
-    // Usa o localStorage para simular um banco de dados (para testes locais)
-    // Quando você subir para o servidor, isso será substituído por uma API real.
-    let visitas = localStorage.getItem("visitas_site");
-
-    if (visitas) {
-        visitas = parseInt(visitas) + 1;
-    } else {
-        visitas = 1; // Primeira visita
-    }
-
-    // Salva o novo valor
-    localStorage.setItem("visitas_site", visitas);
-
-    // Função para animar o contador subindo os números (Efeito visual legal)
     function animarContador(elemento, valorFinal) {
+        if (isNaN(valorFinal)) valorFinal = 0; 
+
         let valorAtual = 0;
-        const incremento = Math.ceil(valorFinal / 50); // Velocidade da animação
-        const duracao = 1500; // 1.5 segundos
-        const passo = duracao / (valorFinal / incremento);
+        // Se o número for muito grande, ajusta a velocidade
+        const incremento = Math.ceil(valorFinal / 50) || 1; 
+        const duracao = 1500; 
+        const passo = duracao / (valorFinal / incremento) || 50;
 
         const timer = setInterval(() => {
             valorAtual += incremento;
@@ -33,7 +35,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }, passo);
     }
-
-    // Inicia a animação
-    animarContador(numeroVisitasElement, visitas);
 });

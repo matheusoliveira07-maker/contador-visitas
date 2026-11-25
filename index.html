@@ -1,17 +1,22 @@
-<!-- RODAPÉ URE LESTE 3 - COM MEGACONTADOR -->
+<!-- RODAPÉ URE LESTE 3 - FINAL COMPLETO -->
 <div class="ure-footer-wrapper">
     <style>
+        /* CONTAINER PRINCIPAL */
         .ure-footer-wrapper {
             background-color: #ffffff;
             border-top: 1px solid #e0e0e0;
-            padding: 20px 10px;
+            padding: 30px 15px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             width: 100%;
             box-sizing: border-box;
-            overflow: hidden !important;
-            height: auto !important;
-            max-height: 350px;
+            
+            /* MÁGICA CONTRA O SCROLL */
+            overflow: visible !important; 
+            height: auto !important;      
+            max-height: none !important;  
+            min-height: 250px;            
         }
+
         .ure-footer-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -19,48 +24,58 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
         }
+
+        /* TEXTOS DA URE - AUMENTADOS */
         .ure-info-text {
             flex: 1;
             text-align: center;
-            min-width: 280px;
+            min-width: 300px;
         }
+        
         .ure-info-text h3 {
             color: #000000;
-            font-size: 1.1rem;
-            margin: 0 0 8px 0;
+            font-size: 1.5rem; /* Título Maior */
+            margin: 0 0 12px 0;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
         }
+        
         .ure-info-text p {
             color: #555555;
-            font-size: 0.85rem;
-            line-height: 1.4;
+            font-size: 1.05rem; /* Endereço Maior */
+            line-height: 1.5;
             margin: 0;
         }
+        
         .ure-info-text .ure-email {
-            margin-top: 5px;
+            margin-top: 8px;
             font-weight: 500;
+            font-size: 1.05rem; /* Email Maior */
             color: #333;
         }
+
+        /* MASCOTE E QUADRO */
         .ure-mascote-box {
             position: relative;
-            width: 320px;
+            width: 380px; 
             max-width: 100%;
             flex-shrink: 0;
             margin: 0 auto;
         }
+        
         .ure-mascote-box img.mascote {
             width: 100%;
             height: auto;
             display: block;
         }
-        /* Posicionamento do contador dentro do quadro */
+
+        /* POSICIONAMENTO DO CONTADOR NO QUADRO */
         .ure-contador-overlay {
             position: absolute;
             top: 26%;
-            left: 40%;
+            left: 42%;
             width: 50%;
             height: 55%;
             display: flex;
@@ -70,28 +85,36 @@
             text-align: center;
         }
         
-        /* Estilo para a imagem do MegaContador */
-        .ure-contador-img {
-            max-width: 100%; /* Impede que a imagem vaze do quadro */
-            height: auto;
-            display: block;
-        }
-        
+        /* TEXTO "VISITAS AO SITE" */
         .ure-contador-label {
-            font-size: 1rem;
+            font-size: 0.9rem; 
             text-transform: uppercase;
             color: #666666;
-            font-weight: 600;
-            margin-bottom: 2px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        /* A IMAGEM DO SEU NOVO MEGACONTADOR */
+        .ure-contador-img {
+            max-width: 140px; 
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
+        /* RESPONSIVIDADE (CELULAR) */
         @media (max-width: 850px) {
             .ure-footer-container {
                 flex-direction: column-reverse;
-                gap: 10px;
+                gap: 15px;
             }
-            .ure-mascote-box { width: 250px; }
-            .ure-footer-wrapper { max-height: none; }
+            .ure-mascote-box { 
+                width: 280px; 
+            }
+            .ure-info-text h3 { font-size: 1.2rem; }
+            .ure-info-text p, .ure-info-text .ure-email { font-size: 0.95rem; }
         }
     </style>
 
@@ -106,16 +129,16 @@
 
         <!-- Mascote e Contador -->
         <div class="ure-mascote-box">
-            <!-- Imagem da Jaguatirica -->
             <img src="https://matheusoliveira07-maker.github.io/contador-visitas/mascote-quadro.png" alt="Mascote Jaguatirica" class="mascote">
             
             <div class="ure-contador-overlay">
                 <span class="ure-contador-label">VISITAS AO SITE</span>
                 
-                <!-- Imagem do MegaContador dentro do quadro -->
+                <!-- INÍCIO DO SEU NOVO CÓDIGO DO MEGACONTADOR (adaptado para o quadro) -->
                 <a title='Contador de Visitas do MegaContador' href='https://megacontador.com.br/' target="_blank">
-                    <img src='https://megacontador.com.br/img-Ap6bTH8zltbCk7DH-26.gif' border='0' alt='Contador de visitas' class="ure-contador-img">
+                    <img src='https://megacontador.com.br/img-3aYmyAIEMIF4HXu4-26.gif' border='0' alt='Contador de visitas' class="ure-contador-img">
                 </a>
+                <!-- FIM DO CÓDIGO DO MEGACONTADOR -->
                 
             </div>
         </div>

@@ -1,4 +1,4 @@
-<!-- RODAPÉ URE LESTE 3 -->
+<!-- RODAPÉ URE LESTE 3 - COM MEGACONTADOR -->
 <div class="ure-footer-wrapper">
     <style>
         .ure-footer-wrapper {
@@ -51,11 +51,12 @@
             flex-shrink: 0;
             margin: 0 auto;
         }
-        .ure-mascote-box img {
+        .ure-mascote-box img.mascote {
             width: 100%;
             height: auto;
             display: block;
         }
+        /* Posicionamento do contador dentro do quadro */
         .ure-contador-overlay {
             position: absolute;
             top: 26%;
@@ -68,6 +69,14 @@
             align-items: center;
             text-align: center;
         }
+        
+        /* Estilo para a imagem do MegaContador */
+        .ure-contador-img {
+            max-width: 100%; /* Impede que a imagem vaze do quadro */
+            height: auto;
+            display: block;
+        }
+        
         .ure-contador-label {
             font-size: 0.65rem;
             text-transform: uppercase;
@@ -75,75 +84,40 @@
             font-weight: 600;
             margin-bottom: 2px;
         }
-        .ure-contador-num {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #002776;
-            line-height: 1;
-            font-variant-numeric: tabular-nums;
-        }
+
         @media (max-width: 850px) {
             .ure-footer-container {
                 flex-direction: column-reverse;
                 gap: 10px;
             }
             .ure-mascote-box { width: 250px; }
-            .ure-contador-num { font-size: 1.8rem; }
             .ure-footer-wrapper { max-height: none; }
         }
     </style>
 
     <div class="ure-footer-container">
+        
+        <!-- Textos da URE -->
         <div class="ure-info-text">
             <h3>UNIDADE REGIONAL DE ENSINO - LESTE 3</h3>
             <p>Rua Isabel Urbina, 200 - CEP 08253-210 - Conjunto Habitacional José Bonifácio - Itaquera - São Paulo - Brasil</p>
             <p class="ure-email">Email: lt3@educacao.sp.gov.br</p>
         </div>
 
+        <!-- Mascote e Contador -->
         <div class="ure-mascote-box">
-            <img src="https://matheusoliveira07-maker.github.io/contador-visitas/mascote-quadro.png" alt="Mascote Jaguatirica">
+            <!-- Imagem da Jaguatirica -->
+            <img src="https://matheusoliveira07-maker.github.io/contador-visitas/mascote-quadro.png" alt="Mascote Jaguatirica" class="mascote">
             
             <div class="ure-contador-overlay">
-                <span class="ure-contador-label">Visitas</span>
-                <!-- O ID aqui precisa ser 'ure-numero-visitas' para o script funcionar -->
-                <div class="ure-contador-num" id="ure-numero-visitas">...</div>
+                <span class="ure-contador-label">VISITAS AO SITE</span>
+                
+                <!-- Imagem do MegaContador dentro do quadro -->
+                <a title='Contador de Visitas do MegaContador' href='https://megacontador.com.br/' target="_blank">
+                    <img src='https://megacontador.com.br/img-Ap6bTH8zltbCk7DH-26.gif' border='0' alt='Contador de visitas' class="ure-contador-img">
+                </a>
+                
             </div>
         </div>
     </div>
-
-    <!-- Script do Contador com a API Abacus -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var el = document.getElementById("ure-numero-visitas");
-            
-            function animar(elemento, valorFinal) {
-                let atual = 0;
-                let incremento = Math.ceil(valorFinal / 30) || 1;
-                let timer = setInterval(() => {
-                    atual += incremento;
-                    if (atual >= valorFinal) {
-                        elemento.innerText = valorFinal;
-                        clearInterval(timer);
-                    } else {
-                        elemento.innerText = atual;
-                    }
-                }, 40);
-            }
-
-            // API Abacus (Nova)
-            fetch('https://abacus.jasonkelly.dev/api/v1/counter/ure_leste_3_visitas/up')
-                .then(res => res.json())
-                .then(data => {
-                    if(data && data.value) {
-                        animar(el, data.value);
-                    } else {
-                        animar(el, 0); // Se a API não retornar número, mostra 0
-                    }
-                })
-                .catch(err => {
-                    console.warn("API bloqueada. Mostrando 0.", err);
-                    animar(el, 0); 
-                });
-        });
-    </script>
 </div>
